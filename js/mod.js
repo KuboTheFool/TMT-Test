@@ -13,14 +13,17 @@ let modInfo = {
 
 // Set your version in num and name
 let VERSION = {
-	num: "0.01",
-	name: "I think it's working...",
+	num: "0.1",
+	name: "It is working!",
 }
 
 let changelog = `<h1>Changelog:</h1><br>
-	<h3>v0.1</h3><br>
+	<h3>v0.01</h3><br>
 	Added basic Generon layer<br>
-	Balancing to come later`
+	Balancing to come later<br><br>
+	<h3>v0.1</h3><br>
+	Balanced Generon layer
+	Added Extendon layer, to be worked on<br>`
 
 let winText = `Congratulations! You have reached the end and beaten this game, but for now...`
 
@@ -44,7 +47,12 @@ function getPointGen() {
 
 	let gain = new Decimal(1)
 
-	if (getBuyableAmount('gen', 11) > 0) gain = gain.times(buyableEffect('gen', 11)) 
+	if (getBuyableAmount('gen', 11) > 0) gain = gain.times(buyableEffect('gen', 11))
+	if (getBuyableAmount('gen', 21) > 0) gain = gain.times(buyableEffect('gen', 21)) 
+	if (getBuyableAmount('gen', 31) > 0) gain = gain.times(buyableEffect('gen', 31)) 
+	if (getBuyableAmount('gen', 41) > 0) gain = gain.times(buyableEffect('gen', 41)) 
+	if (getBuyableAmount('gen', 51) > 0) gain = gain.times(buyableEffect('gen', 51))
+	
 	return gain
 }
 
