@@ -13,8 +13,8 @@ let modInfo = {
 
 // Set your version in num and name
 let VERSION = {
-	num: "0.1",
-	name: "It is working!",
+	num: "0.1.1",
+	name: "New day, new layer",
 }
 
 let changelog = `<h1>Changelog:</h1><br>
@@ -22,8 +22,11 @@ let changelog = `<h1>Changelog:</h1><br>
 	Added basic Generon layer<br>
 	Balancing to come later<br><br>
 	<h3>v0.1</h3><br>
-	Balanced Generon layer
-	Added Extendon layer, to be worked on<br>`
+	Balanced Generon layer<br>
+	Added Extendon layer, to be worked on<br><br>
+	<h3>v0.1.1</h3><br>
+	Extendon layer now grants a proper passive boost and milestones<br>
+	`
 
 let winText = `Congratulations! You have reached the end and beaten this game, but for now...`
 
@@ -52,7 +55,16 @@ function getPointGen() {
 	if (getBuyableAmount('gen', 31) > 0) gain = gain.times(buyableEffect('gen', 31)) 
 	if (getBuyableAmount('gen', 41) > 0) gain = gain.times(buyableEffect('gen', 41)) 
 	if (getBuyableAmount('gen', 51) > 0) gain = gain.times(buyableEffect('gen', 51))
+	if (getBuyableAmount('gen', 61) > 0) gain = gain.times(buyableEffect('gen', 61))
+	if (getBuyableAmount('gen', 71) > 0) gain = gain.times(buyableEffect('gen', 71))
+	if (getBuyableAmount('gen', 81) > 0) gain = gain.times(buyableEffect('gen', 81))
+	if (getBuyableAmount('gen', 91) > 0) gain = gain.times(buyableEffect('gen', 91))
+	if (getBuyableAmount('gen', 101) > 0) gain = gain.times(buyableEffect('gen', 101))
 	
+	if ((player['ext'].points) > 0) gain = gain.times(((player['ext'].points).log2()).plus(2))
+	
+	// gain = gain.times(1000) // lazy debug
+
 	return gain
 }
 
